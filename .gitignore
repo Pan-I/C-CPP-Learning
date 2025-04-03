@@ -30,3 +30,15 @@
 *.exe
 *.out
 *.app
+/CalculatorTutorial/.vs
+*.lastbuildstate
+*.tlog
+*.recipe
+*.ilk
+*.log
+*.idb
+*.pdb
+*.user
+*.vcxproj
+*.sln
+*.filters
