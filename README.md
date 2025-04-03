@@ -1,2 +1,2 @@
-# C-CPP-Learning
-C/C++ Learning Projects Repo
+# C/C++ Learning Repository
+A repo to store my C/C++ tutorial projects
