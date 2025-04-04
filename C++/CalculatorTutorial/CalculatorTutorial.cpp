@@ -35,9 +35,9 @@ int main()
         }
         else
         {
-            result = c.Calculate(x, oper, y);   
+            result = c.Calculate(x, oper, y);
+            cout << "Result of " << x << oper << y << " is: " << result << endl;
         }
-        cout << "Result of " << x << oper << y << " is: " << result << endl;
     }
 
     return 0;
