@@ -42,3 +42,6 @@
 *.vcxproj
 *.sln
 *.filters
+/C++/CalculatorTutorial/.idea
+/C++/CalculatorTutorial/.vs
+/CalculatorTutorial/.idea

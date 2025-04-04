@@ -14,14 +14,29 @@ int main()
     char oper = '+';
 
     cout << "Calculator Console Application\n" << endl;
-    cout << "Please enter the opeartion to perform. Format: a+b | a-b | a*b | a/b"
+    cout << "Please enter the operation to perform. Format: a+b | a-b | a*b | a/b"
         << endl;
 
     Calculator c;
     while (true)
     {
         cin >> x >> oper >> y;
-        result = c.Calculate(x, oper, y);
+        if (cin.fail())
+        {
+            cerr << "Invalid Input! \n Try another calculation ...\n"
+                << "Please enter the operation to perform. Format: a+b | a-b | a*b | a/b" << endl;
+            cin.clear();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+        else if (oper == '/' && y == 0)
+        {
+            cerr << "Math Error: Cannot divide by 0! \n Try another calculation ...\n";
+            continue;
+        }
+        else
+        {
+            result = c.Calculate(x, oper, y);   
+        }
         cout << "Result of " << x << oper << y << " is: " << result << endl;
     }
 
