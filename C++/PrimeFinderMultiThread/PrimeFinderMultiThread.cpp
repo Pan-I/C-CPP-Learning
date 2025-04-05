@@ -4,28 +4,23 @@
 #include <iostream>
 #include <thread>
 
-bool isPrime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; ++i) {
-        if (n % i == 0) return false;
-    }
-    return true;
-}
+#include "PrimeChecker.h"
 
-void printPrimes(int start, int end)
+static void printPrimes(const int start, const int end)
 {
-    int printTally = 0;
+    PrimeChecker checker;
+    int print_tally = 0;
     
     for (int i = start; i <= end; ++i)
     {
-        if (isPrime(i))
+        if (checker.isPrime(i))
         {
-            printTally++;
-            if (printTally == 1)
+            print_tally++;
+            if (print_tally == 1)
             {
                 std::cout << i;
             }
-            else if ((printTally-1) % 10 == 0)
+            else if ((print_tally-1) % 10 == 0)
             {
                 std::cout << "\n" << i;
             }
