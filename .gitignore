@@ -30,7 +30,6 @@
 *.exe
 *.out
 *.app
-/CalculatorTutorial/.vs
 *.lastbuildstate
 *.tlog
 *.recipe
@@ -42,6 +41,7 @@
 *.vcxproj
 *.sln
 *.filters
-/C++/CalculatorTutorial/.idea
-/C++/CalculatorTutorial/.vs
-/CalculatorTutorial/.idea
+
+#IDE Generated Folders
+.vs/
+.idea/
