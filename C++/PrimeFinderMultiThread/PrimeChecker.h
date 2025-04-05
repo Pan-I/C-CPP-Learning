@@ -1,8 +1,7 @@
 ﻿#pragma once
 
-class PrimeChecker
+class prime_checker
 {
 public:
-    bool isPrime(int number);
-    
+    static bool is_prime(int number);
 };

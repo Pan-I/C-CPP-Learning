@@ -1,10 +1,10 @@
 ﻿#include "PrimeChecker.h"
 
-bool PrimeChecker::isPrime(int n)
+bool prime_checker::is_prime(const int number)
 {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; ++i) {
-        if (n % i == 0) return false;
+    if (number <= 1) return false;
+    for (int i = 2; i * i <= number; ++i) {
+        if (number % i == 0) return false;
     }
     return true; 
 }
