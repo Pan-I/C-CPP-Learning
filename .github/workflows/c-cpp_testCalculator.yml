@@ -1,0 +1,46 @@
+name: Build and Test C++ Program
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up C++ environment
+      uses: actions/setup-cpp@v3
+      with:
+        compiler: 'gcc'
+        compiler-version: '10'
+
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y g++ make
+
+    - name: Build the program
+      run: |
+        g++ -o calculator CalculatorTutorial.cpp Calculator.cpp
+      
+    - name: Provide input and run program
+      run: |
+        echo -e "9+9" | ./calculator
+        
+   # - name: Provide input and run program
+   #   run: |
+   #     echo -e "9-9" | ./C++/CalculatorTutorial/CalculatorTutorial.cpp
+   # - name: Provide input and run program
+   #   run: |
+   #     echo -e "9*9" | ./C++/CalculatorTutorial/CalculatorTutorial.cpp
+   # - name: Provide input and run program
+   #   run: |
+   #     echo -e "9/9" | ./C++/CalculatorTutorial/CalculatorTutorial.cpp
+
