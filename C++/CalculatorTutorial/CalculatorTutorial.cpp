@@ -2,6 +2,8 @@
 //
 
 #include <iostream>
+#include <limits>
+#include <iosfwd>
 #include "Calculator.h"
 
 using namespace std;
