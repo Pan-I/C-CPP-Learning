@@ -3,12 +3,14 @@
 
 #include <iostream>
 #include <thread>
+#include <vector>
 
 #include "PrimePrinter.h"
+#include "PrimeChecker.h"
 
 int main(int argc, char* argv[])
 {
-    int start, end;
+    int start, end, numThreads = 4;
     
     std::cout << "Prime-Finder (Using Multithreading!)\n";
     std::cout << "Enter your starting value:\n";
@@ -24,7 +26,19 @@ int main(int argc, char* argv[])
         return 0;
     }
 
-    std::cout << "\n You want to find primes from " << start << " to " << end << ".\n";
+    // Determine range chunks
+    int rangeSize = (end - start + 1) / numThreads;
+    std::vector<int> chunkStart(numThreads), chunkEnd(numThreads);
+
+    for (int i = 0; i < numThreads; ++i) {
+        chunkStart[i] = start + i * rangeSize;
+        chunkEnd[i] = (i == numThreads - 1) ? end : (chunkStart[i] + rangeSize - 1);
+
+        std::cout << "Chunk " << i + 1 << ": " << chunkStart[i] << " to " << chunkEnd[i] << "\n";
+    }
+    //
+
+    std::cout << "\nYou want to find primes from " << start << " to " << end << ".\n";
     
     std::cout << "    Prime numbers in this range...\n";
     prime_printer::print_primes(start, end);
